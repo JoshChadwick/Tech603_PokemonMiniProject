@@ -21,13 +21,17 @@ from pprint import pprint
 # Get the list of pokemon from the API
 url = 'https://pokeapi.co/api/v2/pokemon/'
 response = requests.get(url)
-print("\njson:", response.json())
-print("\ncontent:", response.content)
-pokemon_list = json.loads(response.text)['results']
-print("\nlist: ", pokemon_list)
+response_json = response.json()
+# print("\njson:", response_json)
 
-for pokemon in pokemon_list:
-    print(pokemon['name'])
+results = response_json["results"]
+print("\nresults: ", results)
+
+pokemon_list = []
+for pokemon in results:
+    pokemon_list.append(pokemon["name"])
+
+print(pokemon_list)
 
 # Ask the user to choose a pokemon
 print('Enter your pokemon:')
@@ -41,12 +45,20 @@ response = requests.get(url)
 pokemon_data = json.loads(response.text)
 print("\npokemon_data", pokemon_data)
 
+
+'''
+name, hp, attack, defense, speed, power
+'''
 # to get ability
 abilities = pokemon_data['abilities'][0]
+print("\nabilities: ", abilities)
 ability = abilities['ability']
+print("\nability: ", ability)
 
 # to format height and weight properly
 height = int(pokemon_data['height'])
+attack = pokemon_data['attack']
+print("\nattack: ", attack)
 weight = int(pokemon_data['weight'])
 
 height_formatted = height /10
@@ -57,3 +69,4 @@ print('Name: {}'.format(pokemon_data['name']))
 print('Weight: {}'.format(weight_formatted) +"(kgs)")
 print('Height: {}'.format(height_formatted) +"(m)")
 print('Ability: {}'.format(ability['name']))
+
