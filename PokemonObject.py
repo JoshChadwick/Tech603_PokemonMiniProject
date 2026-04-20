@@ -17,6 +17,7 @@ class PokemonObject:
         return max(1, self.attack - (opponent_defense // 2))
     
 
+#Testing
 
 if __name__ == "__main__":
     pikachu = PokemonObject("pikachu", 55, 40, ["thunder-shock", "quick-attack"])
