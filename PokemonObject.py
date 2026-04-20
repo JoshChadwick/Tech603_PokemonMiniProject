@@ -15,6 +15,7 @@ class PokemonObject:
 
     def calculate_damage(self, opponent_defense):
         return max(1, self.attack - (opponent_defense // 2))
+    
 
 
 if __name__ == "__main__":
