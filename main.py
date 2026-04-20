@@ -1,16 +1,48 @@
-# This is a sample Python script.
+from PokemonObject import *
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+class Game():
+    def __init__(self):
+        self.p1
+        self.p2
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    def decide_pokemon(self):
+        #PRINT LIST OF POKEMON
+        name = input("Choose ")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+        name, attack, defense, moves = pokeJson.get_pokemon()
+        self.p1 = PokemonObject(name, attack, defense, moves)
+
+        #PRINT LIST OF POKEMON
+        name = input("Choose ")
+
+        name, attack, defense, moves = pokeJson.get_pokemon()
+        self.p2 = PokemonObject(name, attack, defense, moves)
+
+
+    def main(self):
+
+        self.decide_pokemon()
+        while True:
+            self.p2.take_damage(self.p1.calculate_damage(self.p2.defense))
+
+            self.p1.take_damage(self.p2.calculate_damage(self.p1.defense))
+
+            print("Name:",self.p1.name)
+            print("Hp:",self.p1.hp)
+
+            print("Name:",self.p2.name)
+            print("Hp:",self.p2.hp)
+
+
+            if not self.p1.isAlive():
+                print(f"{self.p1.name} is DEAD!")
+
+
+            if not self.p2.isAlive():
+                print(f"{self.p1.name} is DEAD!")
+
+            input()
+
+
+
