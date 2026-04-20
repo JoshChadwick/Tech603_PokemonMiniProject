@@ -1,11 +1,13 @@
 class PokemonObject:
-    def __init__(self, name, attack, defense, moves, hp=100):
+    def __init__(self, name, ability, height, weight, attack, defense, speed, hp):
         self.name = name
+        self.ability = ability
+        self.height = height
+        self.weight = weight
         self.attack = attack
         self.defense = defense
-        self.moves = moves
+        self.speed = speed
         self.hp = hp
-        self.max_hp = hp
 
     def is_alive(self):
         return self.hp > 0
@@ -24,7 +26,7 @@ if __name__ == "__main__":
 
     print(pikachu.name)
     print(pikachu.hp)
-    print(pikachu.moves)
+    print(pikachu.speed)
     print(pikachu.calculate_damage(20))
 
     pikachu.take_damage(30)
