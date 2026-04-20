@@ -1,4 +1,6 @@
 from PokemonObject import *
+from pokemon_api_data import get_pokemon_list, get_chosen_pokemon, get_random_pokemon, get_pokemon_details
+
 
 
 class Game():
