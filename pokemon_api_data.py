@@ -50,14 +50,10 @@ for k, v in pokemon_data.items():
 
 # to get ability
 abilities = pokemon_data['abilities'][0]
-# print("\nabilities: ", abilities)
 ability_name = abilities['ability']['name']
-# print("\nability: ", ability_name)
 
 # to format height and weight properly
 height = int(pokemon_data['height'])
-# attack = pokemon_data['attack']
-# print("\nattack: ", attack)
 weight = int(pokemon_data['weight'])
 
 height_formatted = height /10
