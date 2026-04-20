@@ -1,5 +1,6 @@
 from PokemonObject import *
 
+
 class Game():
     def __init__(self):
         self.p1

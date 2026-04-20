@@ -14,6 +14,7 @@ Be as creative as you like after this. Can you incorporate different abilities/s
 Try and work collaboratively on the one repo using Git
 """
 
+import random
 import requests
 import json
 
@@ -82,3 +83,10 @@ print("HP: ", hp)
 print("Attack: ", attack)
 print("Defense: ", defense)
 print("Speed: ", speed)
+
+def get_random_pokemon():
+    rand_pokemon = random.choice(pokemon_list)
+    return rand_pokemon, hp, attack, defense, speed
+
+def get_chosen_pokemon():
+    pass
