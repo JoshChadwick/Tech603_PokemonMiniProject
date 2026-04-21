@@ -1,26 +1,29 @@
 from PokemonObject import *
+from pokemon_api_data import *
 from pokemon_api_data import get_pokemon_list, get_chosen_pokemon, get_random_pokemon, get_pokemon_details
 
 
 
 class Game():
     def __init__(self):
-        self.p1
-        self.p2
+        self.p1 = None
+        self.p2 = None
 
 
     def decide_pokemon(self):
-        #PRINT LIST OF POKEMON
+        for pokemon_name in get_pokemon_list():
+            print(pokemon_name)
         name = input("Choose ")
 
-        name, attack, defense, moves = pokeJson.get_pokemon()
-        self.p1 = PokemonObject(name, attack, defense, moves)
+        details = get_pokemon_details(name)
+        self.p1 = PokemonObject(details["name"], details["ability"], details["height"], details["weight"], details["attack"], details["defense"], details["speed"],100)
 
-        #PRINT LIST OF POKEMON
+        for pokemon_name in get_pokemon_list():
+            print(pokemon_name)
         name = input("Choose ")
 
-        name, attack, defense, moves = pokeJson.get_pokemon()
-        self.p2 = PokemonObject(name, attack, defense, moves)
+        details = get_pokemon_details(name)
+        self.p2 = PokemonObject(details["name"], details["ability"], details["height"], details["weight"], details["attack"], details["defense"], details["speed"],100)
 
 
     def main(self):
@@ -38,14 +41,15 @@ class Game():
             print("Hp:",self.p2.hp)
 
 
-            if not self.p1.isAlive():
+            if not self.p1.is_alive():
                 print(f"{self.p1.name} is DEAD!")
 
 
-            if not self.p2.isAlive():
+            if not self.p2.is_alive():
                 print(f"{self.p1.name} is DEAD!")
 
             input()
 
 
-
+game = Game()
+game.main()
