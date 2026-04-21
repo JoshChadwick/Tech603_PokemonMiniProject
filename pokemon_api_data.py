@@ -22,8 +22,8 @@ import json
 def get_pokemon_list():
     url = 'https://pokeapi.co/api/v2/pokemon/'
     response = requests.get(url)
-    response_json = response.json()
-    results = response_json["results"]
+    response_dict = response.json()
+    results = response_dict["results"]
     pokemon_list = []
     for pokemon in results:
         pokemon_list.append(pokemon["name"])
@@ -34,7 +34,8 @@ def get_pokemon_list():
 def get_pokemon_details(pokemon):
     url = f"https://pokeapi.co/api/v2/pokemon/{pokemon}/"
     response = requests.get(url)
-    pokemon_data = json.loads(response.text)
+    # pokemon_data = json.loads(response.text) # turns raw text string into a usable py_dict
+    pokemon_data = response.json() # returns a usable py_dict
     name = pokemon_data["name"]
     abilities = pokemon_data['abilities'][0]
     ability_name = abilities['ability']['name']
