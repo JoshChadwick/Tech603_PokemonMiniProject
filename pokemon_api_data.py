@@ -30,20 +30,6 @@ def get_pokemon_list():
     # print("\npokemon_list: ", pokemon_list)
     return pokemon_list
 
-def get_random_pokemon():
-    pokemon_list = get_pokemon_list()
-    rand_pokemon = random.choice(pokemon_list)
-    print("\nrandom pokemon: ", rand_pokemon)
-    return get_pokemon_details(rand_pokemon)
-
-def get_chosen_pokemon():
-    # Ask the user to choose a pokemon
-    print('\nEnter your pokemon:')
-    # Get the user's choice
-    choice = input().lower()
-    print("\nchosen pokemon: ", choice)
-    return get_pokemon_details(choice)
-
 # Get the specified pokemon's data from the API
 def get_pokemon_details(pokemon):
     url = f"https://pokeapi.co/api/v2/pokemon/{pokemon}/"
@@ -65,6 +51,20 @@ def get_pokemon_details(pokemon):
             "defense": defense, "speed": speed}
     print("\ndetails: ", detail)
     return detail
+
+def get_random_pokemon():
+    pokemon_list = get_pokemon_list()
+    rand_pokemon = random.choice(pokemon_list)
+    print("\nrandom pokemon: ", rand_pokemon)
+    return get_pokemon_details(rand_pokemon)
+
+def get_chosen_pokemon():
+    # Ask the user to choose a pokemon
+    print('\nEnter your pokemon:')
+    # Get the user's choice
+    choice = input().lower()
+    print("\nchosen pokemon: ", choice)
+    return get_pokemon_details(choice)
 
 if __name__ == "__main__":
     print("Testing pokemon_api_data.py...")
